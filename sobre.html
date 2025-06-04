@@ -14,18 +14,18 @@
     }
 
     body {
-      background-color: #fff;
+      background-color: #000000;
       color: #333;
       line-height: 1.6;
     }
 
     header {
-      background: #ffffff;
+      background: #000000;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #000000;
       position: relative;
     }
 
@@ -69,7 +69,7 @@
       align-items: center;
       text-align: center;
       padding: 2rem;
-      background: #FFEFD2;
+      background: #000000;
     }
 
     .hero img {
@@ -123,7 +123,7 @@
       display: inline-block;
       padding: 0.7rem 1.5rem;
       background: #7FAF95;
-      color: white;
+      color: rgb(0, 0, 0);
       font-weight: bold;
       text-decoration: none;
       border-radius: 8px;
@@ -142,7 +142,7 @@
     }
 
     footer {
-      background: #f5f5f5;
+      background: #000000;
       padding: 1rem;
       text-align: center;
       font-size: 0.9rem;
@@ -167,7 +167,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: #f9f9f9;
+        background: #ffffff;
         flex-direction: column;
         padding: 1rem;
         border-top: 1px solid #ddd;
@@ -222,7 +222,7 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
+      background-color: #000000;
       color: #333;
       line-height: 1.6;
     }
@@ -282,11 +282,11 @@
     }
 
     .cta a:hover {
-      background-color: #ffffff;
+      background-color: #000000;
     }
 
     .how-it-works {
-      background-color: #eef3f7;
+      background-color: #000000;
     }
 
     .how-it-works h2 {
@@ -346,7 +346,89 @@
       transition: background-color 0.6s ease;
       background-color: #ffffff;
     }
-  </style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f4f7f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #000000;
+      color: rgb(0, 0, 0);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: rgb(0, 0, 0);
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #00587a;
+    }
+
+    footer {
+      background: #ffffff;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    .btn-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007ea7;
+      color: rgb(0, 0, 0);
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      display: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .equipe {
+      font-style: italic;
+      margin-top: 2rem;
+    }
+    h1{
+        text-align: center;
+    }
+</style>
 </head>
 <body>
   <header>
@@ -364,48 +446,35 @@
       <a href="faq.html">FAQ</a>
     </nav>
   </header>
-  <section class="intro">
+  <h1>Sobre o Simulador</h1>
+  <section id="missao">
+
+    <h2>Nossa Missão</h2>
     <p>
-      A Help é um simulador interativo que te coloca no centro de uma crise: uma enchente iminente ameaça a cidade.
-      Seu desafio é tomar decisões estratégicas em tempo real, aprender com as consequências e entender como sua atuação pode salvar vidas e evitar o caos.
+      O projeto HelpFlood tem como missão educar e conscientizar sobre a importância da preparação para desastres naturais, especialmente enchentes urbanas. Nosso objetivo é capacitar cidadãos e gestores públicos a tomar decisões estratégicas e eficazes durante situações de crise.
     </p>
   </section>
 
-  <section class="hero-media">
-    <img src="img/enchete.jpg" width="1000" height="450" alt="Imagem de enchente impactante">
+  <section id="gamificacao">
+    <h2>Por Que Gamificar?</h2>
+    <p>
+      A gamificação é uma poderosa ferramenta de aprendizado. Ao transformar conhecimento em simulação, o usuário se engaja ativamente no conteúdo. No HelpFlood, cada decisão impacta diretamente a cidade virtual, promovendo reflexões reais sobre gestão de crises e resiliência urbana.
+    </p>
   </section>
 
-  <section class="cta">
-    <a id="startButton" href="simulador.html">Começar o Desafio</a>
+  <section id="metodologia">
+    <h2>Metodologia e Dados</h2>
+    <p>
+      O simulador é alimentado por dados reais de eventos extremos registrados no Brasil. A lógica do jogo foi construída com Python e visualizada com Streamlit, proporcionando um ambiente amigável para analisar decisões e seus efeitos nos indicadores como segurança, orçamento e tempo de resposta.
+    </p>
   </section>
 
-  <section class="how-it-works" id="how">
-    <h2>Como Funciona</h2>
-    <div class="steps">
-      <div class="step">
-        <img src="img/papelsocial.jpeg" width="300" height="100" alt="Escolha seu papel">
-        <p><strong>Escolha seu papel:</strong> Prefeito, Engenheiro, Defesa Civil...</p>
-      </div>
-      <div class="step">
-        <img src="img/decisões.jpeg" width="500" height="100" alt="Tome decisões">
-        <p><strong>Tome decisões:</strong> Com base em dados, tempo e recursos limitados.</p>
-      </div>
-      <div class="step">
-        <img src="img/impacto.jpeg" width="200" height="100" alt="Veja o impacto">
-        <p><strong>Veja o impacto:</strong> A cidade reage às suas escolhas.</p>
-      </div>
-    </div>
+  <section id="equipe" class="equipe">
+    <h2>Equipe</h2>
+    <p>Desenvolvido por Guilherme de Andrade Martini, Eduardo de Melo Albanese e Nathan G.P Mendes, como parte de um projeto acadêmico voltado à educação para a preparação urbana frente às mudanças climáticas.</p>
   </section>
 
-  <section class="testimonials">
-    <h2>Validação</h2>
-    <p class="testimonial">"Uma ferramenta essencial para educação em gestão de riscos." — Especialista em Defesa Civil</p>
-    <p class="testimonial">"Simples, envolvente e poderosa para conscientização." — Professor da FIAP</p>
-    <div class="logos">
-      <img src="logos/fiap.png" alt="Logo FIAP">
-      <img src="logos/defesa_civil.png" alt="Logo Defesa Civil">
-    </div>
-  </section>
+  <button id="btnTopo" class="btn-topo" title="Voltar ao topo">↑</button>
 
   <footer>
     <a href="faq.html">Sobre Simulador</a> |
@@ -413,7 +482,34 @@
     <a href="lembretes.html">Contato</a> |
     <a href="recompensas.html">Faq</a>
   </footer>
-  
+  <script>
+    // Botão "Voltar ao topo"
+    const btnTopo = document.getElementById("btnTopo");
 
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 200) {
+        btnTopo.style.display = "block";
+      } else {
+        btnTopo.style.display = "none";
+      }
+    };
+
+    btnTopo.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+
+    
 </body>
 </html>
+    
+
+    
+
+
+    
+
+  
+
+
