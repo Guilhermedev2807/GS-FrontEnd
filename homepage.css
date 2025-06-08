@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HelpFlood</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/homepage.css" />
-  <style>
-    * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -205,65 +196,3 @@
         display: flex;
       }
     }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="img/logo_HelpFlood__1_-removebg-preview.png" alt="HelpFlood Logo" id="logo" />
-    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <nav>
-      <a href="Homepage.html">Início</a>
-      <a href="sobre.html">Sobre Simulador</a>
-      <a href="simulador.html">Simulador</a>
-      <a href="contato.html">Contato</a>
-      <a href="integrantes.html">Integrantes</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-  </header>
-
-  <section class="intro">
-    <p>
-      A HelpFlood é um simulador interativo que te coloca no centro de uma crise: uma enchente iminente ameaça a cidade.
-      Seu desafio é tomar decisões estratégicas em tempo real, aprender com as consequências e entender como sua atuação
-      pode salvar vidas e evitar o caos.
-    </p>
-  </section>
-
-  <section class="hero-media">
-    <img src="img/img_enchente_pc.png" width="2500" height="550" alt="Imagem de enchente impactante" />
-  </section>
-
-  <section class="cta">
-    <a id="startButton" href="simulador.html">Começar o Desafio</a>
-  </section>
-
-  <section class="how-it-works" id="how">
-    <h2>Como Funciona</h2>
-    <div class="steps">
-      <div class="step">
-        <img src="img/seleciona_cidade.png" alt="Escolha a cidade" />
-        <p><strong>Escolha a cidade/região:</strong> São Paulo, Rio de Janeiro, Minas Gerais...</p>
-      </div>
-      <div class="step">
-        <img src="img/tome_decisoes.png" alt="Tome decisões" />
-        <p><strong>Tome decisões:</strong> Com base em dados, tempo e recursos limitados.</p>
-      </div>
-      <div class="step">
-        <img src="img/vejaimpacto_cidade.png" alt="Veja o impacto" />
-        <p><strong>Veja o impacto:</strong> A cidade reage às suas escolhas.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <a href="sobre.html">Sobre Simulador</a> |
-    <a href="simulador.html">Simulador</a> |
-    <a href="contato.html">Contato</a> |
-    <a href="faq.html">FAQ</a>
-  </footer>
-</body>
-</html>

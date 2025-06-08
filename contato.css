@@ -1,0 +1,225 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    body {
+      flex: 1 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ffffff, #ffffff);
+      color: #000000;
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      font-style: italic;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 600;
+    }
+
+    #logo {
+      height: 150px;
+      max-width: 1000px;
+      width: auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 4px 0;
+    }
+
+    main {
+      flex: 1 0 auto;
+      padding: 2rem 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .section {
+      background: #FFEFD2;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: left;
+      color: #3D3D3D;
+      max-width: 400px; /* limitando largura da seção do formulário */
+      margin: 2rem auto; /* centralizando a seção */
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .section p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    form input[type='text'],
+    form input[type='number'],
+    form input[type='tel'],
+    form input[type='email'],
+    form textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: border-color 0.3s;
+      resize: vertical;
+    }
+
+    form input[type='text']:focus,
+    form input[type='number']:focus,
+    form input[type='tel']:focus,
+    form input[type='email']:focus,
+    form textarea:focus {
+      border-color: #001e6c;;
+      outline: none;
+      box-shadow: 0 0 5px #001e6c;;
+    }
+
+    form button[type='submit'] {
+      width: 100%;
+      background-color: #001e6c;;
+      color: white;
+      font-weight: bold;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button[type='submit']:hover,
+    form button[type='submit']:focus {
+      background-color: #001e6c;;
+      outline: none;
+    }
+
+    #resultado {
+      margin-top: 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    footer {
+      background: #000428;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      flex-shrink: 0;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #f9f9f9;
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 1px solid #ddd;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+        color: #000;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .section {
+        max-width: 90%;
+        margin: 1rem auto;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section h2 {
+        font-size: 1.4rem;
+      }
+
+      form button[type='submit'] {
+        font-size: 1rem;
+      }
+    }

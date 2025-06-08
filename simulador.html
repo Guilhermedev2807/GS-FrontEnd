@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HelpFlood</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/simulador.css">
+</head>
+<body>
+  <header>
+    <img src="img/logo_HelpFlood__1_-removebg-preview.png" alt="Logo HelpFlood" id="logo" />
+
+    <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" role="button" tabindex="0">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <nav id="nav-menu" role="navigation" aria-label="Menu principal">
+      <a href="Homepage.html">Início</a>
+      <a href="sobre.html">Sobre Simulador</a>
+      <a href="simulador.html">Simulador</a>
+      <a href="contato.html">Contato</a>
+      <a href="integrantes.html">Integrantes</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" aria-labelledby="simulador-title">
+      <h2 id="simulador-title">Simulador de Enchentes</h2>
+      <p>Preencha os dados abaixo e veja se um alerta será emitido.</p>
+
+      <form id="simulador-form" class="form-container" novalidate>
+        <label for="regiao">Região:</label>
+        <input type="text" id="regiao" name="regiao" placeholder="Ex: Bairro Centro" required aria-required="true" />
+
+        <label for="chuva">Nível de chuva (mm):</label>
+        <input type="number" id="chuva" name="chuva" placeholder="Ex: 35" required aria-required="true" min="0" />
+
+        <button type="submit">Simular</button>
+
+        <div id="resultado" aria-live="polite" aria-atomic="true" role="region"></div>
+
+        <button id="export-pdf-btn" type="button" aria-label="Exportar resultado para PDF" style="display:none;">
+          Exportar Relatório PDF
+        </button>
+      </form>
+
+      <section id="historico" aria-labelledby="historico-title" tabindex="0">
+        <h3 id="historico-title">Histórico das Simulações (sessão atual)</h3>
+        <ul id="lista-historico" aria-live="polite" aria-atomic="true" role="list"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <a href="sobre.html">Sobre Simulador</a> |
+    <a href="simulador.html">Simulador</a> |
+    <a href="contato.html">Contato</a> |
+    <a href="faq.html">Faq</a>
+  </footer>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    menuToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        navMenu.classList.toggle('active');
+      }
+    });
+
+    // Variáveis para histórico
+    let historicoSimulacoes = [];
+
+    const form = document.getElementById('simulador-form');
+    const resultado = document.getElementById('resultado');
+    const listaHistorico = document.getElementById('lista-historico');
+    const btnExportPdf = document.getElementById('export-pdf-btn');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const regiao = document.getElementById('regiao').value.trim();
+      const chuva = parseFloat(document.getElementById('chuva').value);
+
+      if (!regiao || isNaN(chuva)) {
+        resultado.textContent = "Por favor, preencha todos os campos corretamente.";
+        resultado.style.color = "#cc0000";
+        btnExportPdf.style.display = 'none';
+        return;
+      }
+
+      // Definir risco e cor + emoji
+      let risco = '';
+      let cor = '';
+      let emoji = '';
+      let barraClasse = '';
+
+      if (chuva < 10) {
+        risco = "Sem risco.";
+        cor = "#4CAF50";
+        emoji = "✅";
+        barraClasse = 'risco-baixo';
+      } else if (chuva < 30) {
+        risco = "Risco moderado - Atenção.";
+        cor = "#FFA500";
+        emoji = "⚠️";
+        barraClasse = 'risco-medio';
+      } else if (chuva < 60) {
+        risco = "Risco alto - Alerta!";
+        cor = "#FF5722";
+        emoji = "🚨";
+        barraClasse = 'risco-alto';
+      } else {
+        risco = "Risco extremo - Emergência!";
+        cor = "#B71C1C";
+        emoji = "🔥";
+        barraClasse = 'risco-extremo';
+      }
+
+      // Criar barra animada proporcional (max 100mm para 100%)
+      let larguraPercentual = Math.min((chuva / 100) * 100, 100);
+
+      // Montar resultado com barra animada e emoji
+      resultado.innerHTML = `
+        <p>Região: <strong>${regiao}</strong></p>
+        <p>Nível de chuva: <strong>${chuva} mm</strong></p>
+
+        <div id="barra-chuva">
+          <div id="barra-chuva-fill" class="${barraClasse}" style="width: 0;">${larguraPercentual.toFixed(0)}%</div>
+        </div>
+
+        <p style="color: ${cor}; font-size: 1.3rem; margin-top: 0.5rem;">
+          <strong>${emoji} ${risco}</strong>
+        </p>
+      `;
+
+      // Animação da barra (depois do innerHTML, pegar a barra)
+      const barraFill = document.getElementById('barra-chuva-fill');
+      setTimeout(() => {
+        barraFill.style.width = larguraPercentual + '%';
+      }, 100);
+
+      resultado.style.color = cor;
+
+      // Atualizar histórico
+      adicionarHistorico({ regiao, chuva, risco, cor, emoji, data: new Date() });
+
+      // Mostrar botão de exportar PDF
+      btnExportPdf.style.display = 'block';
+    });
+
+    // Função para adicionar simulação no histórico e atualizar a lista visual
+    function adicionarHistorico(item) {
+      // Mantém só as últimas 5
+      if (historicoSimulacoes.length >= 5) {
+        historicoSimulacoes.shift();
+      }
+      historicoSimulacoes.push(item);
+      atualizarListaHistorico();
+    }
+
+    // Atualiza o histórico visível no UL
+    function atualizarListaHistorico() {
+      listaHistorico.innerHTML = '';
+      historicoSimulacoes.slice().reverse().forEach((item, i) => {
+        const li = document.createElement('li');
+        const dataFormatada = item.data.toLocaleString('pt-BR', {
+          day: '2-digit', month: '2-digit', year: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        });
+        li.textContent = `${item.emoji} ${dataFormatada} — Região: ${item.regiao} — Chuva: ${item.chuva} mm — ${item.risco}`;
+        listaHistorico.appendChild(li);
+      });
+    }
+
+    // Exportar resultado para PDF usando jsPDF
+    btnExportPdf.addEventListener('click', () => {
+      if (historicoSimulacoes.length === 0) {
+        alert("Não há simulações para exportar.");
+        return;
+      }
+
+      const ultimaSimulacao = historicoSimulacoes[historicoSimulacoes.length - 1];
+
+      const doc = new jsPDF();
+
+      doc.setFontSize(18);
+      doc.text("Relatório de Simulação - HelpFlood", 14, 20);
+
+      doc.setFontSize(12);
+      doc.text(`Data: ${ultimaSimulacao.data.toLocaleString('pt-BR')}`, 14, 30);
+      doc.text(`Região: ${ultimaSimulacao.regiao}`, 14, 40);
+      doc.text(`Nível de chuva: ${ultimaSimulacao.chuva} mm`, 14, 50);
+      doc.setTextColor(ultimaSimulacao.cor);
+      doc.text(`${ultimaSimulacao.emoji} ${ultimaSimulacao.risco}`, 14, 60);
+      doc.setTextColor(0, 0, 0);
+
+      doc.save(`Relatorio_Simulacao_${ultimaSimulacao.regiao.replace(/\s+/g, "_")}_${ultimaSimulacao.data.getTime()}.pdf`);
+    });
+  </script>
+</body>
+</html>
