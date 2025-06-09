@@ -1,0 +1,141 @@
+[\# 🌊 HelpFlood - Simulador Educativo de Prevenção a Enchentes]{.mark}
+
+[\## 🎯 Objetivo do Projeto]{.mark}
+
+[HelpFlood é um simulador educativo gamificado que visa conscientizar e
+capacitar cidadãos, estudantes e gestores públicos sobre preparação e
+resposta a desastres naturais, com ênfase em enchentes urbanas.]{.mark}
+
+[Através de uma experiência interativa, o usuário assume diferentes
+papéis na gestão de uma cidade (prefeito, coordenador da defesa civil,
+engenheiro ambiental) e toma decisões estratégicas diante de cenários
+realistas de crise.]{.mark}
+
+[\-\--]{.mark}
+
+[\## 📁 Estrutura de Pastas e Arquivos]{.mark}
+
+[Pasta:]{.mark}
+
+[FontEnd GS Certo]{.mark}
+
+[/]{.mark}
+
+[├── css/]{.mark}
+
+[│ └── contato.css]{.mark}
+
+[faq.css]{.mark}
+
+[Homepage.css]{.mark}
+
+[Integrantes.css]{.mark}
+
+[simulador.css]{.mark}
+
+[sobre.css]{.mark}
+
+[]{.mark}
+
+[│]{.mark}
+
+[├── img/ \# Imagens usadas no site]{.mark}
+
+[│ ├── enchente.jpg]{.mark}
+
+[│ ├── foto_eduardo.png]{.mark}
+
+[│ ├── foto_guilherme.jpg]{.mark}
+
+[│ ├── foto_nathan.jpg]{.mark}
+
+[│ ├── helpflood_enchente.jpg]{.mark}
+
+[│ ├── img_enchente_pc.png]{.mark}
+
+[│ ├── impacto.jpeg]{.mark}
+
+[│ ├── logo_HelpFlood.png]{.mark}
+
+[│ ├── logo_HelpFlood_1\_.png]{.mark}
+
+[│ ├── nathan_foto.jpeg]{.mark}
+
+[│ ├── seleciona_cidade.png]{.mark}
+
+[│ ├── tome_decisoes.png]{.mark}
+
+[│ └── vejaimpacto_cidade.png]{.mark}
+
+[│]{.mark}
+
+[├── contato.html \# Página de contato]{.mark}
+
+[├── faq.html \# Página de perguntas frequentes]{.mark}
+
+[├── Homepage.html \# Página inicial do projeto]{.mark}
+
+[├── integrantes.html \# Apresentação dos integrantes]{.mark}
+
+[├── simulador.html \# Simulador de enchentes (interativo)]{.mark}
+
+[├── sobre.html \# Informações e objetivos do projeto]{.mark}
+
+[├── README.md \# Arquivo explicativo do projeto]{.mark}
+
+[└── Documento Front GS\... \# Provável arquivo de planejamento (não é
+utilizado no site)]{.mark}
+
+[\## 🛠️ Tecnologias Utilizadas]{.mark}
+
+[- \*\*Front-end:\*\* HTML, CSS, JavaScript]{.mark}
+
+[- \*\*Simulador:\*\* Desenvolvido com lógica JavaScript diretamente no
+navegador]{.mark}
+
+[- \*\*Dados de base:\*\* Relatórios reais da Defesa Civil, IPCC e
+eventos brasileiros]{.mark}
+
+[- \*\*Gamificação:\*\* Sistema de pontuação, feedback visual,
+simulações com variação de consequências]{.mark}
+
+[\-\--]{.mark}
+
+[\## 👥 Integrantes]{.mark}
+
+[- \[Guilherme de Andrade Martini\] RM:566087]{.mark}
+
+[- \[Eduardo de Melo Albanese\] RM:561790]{.mark}
+
+[- \[Nathan G.P Mendes\] RM:564666]{.mark}
+
+[\## 🔗 Endereço do Repositório no GitHub]{.mark}
+
+[https://github.com/Guilhermedev2807/GS-FrontEnd/blob/main/README.md]{.mark}
+
+[\-\--]{.mark}
+
+[\## 📚 Objetivos Específicos]{.mark}
+
+[1. Educar sobre gestão de riscos urbanos relacionados a eventos
+climáticos extremos.]{.mark}
+
+[2. Tornar o aprendizado acessível e engajador por meio da
+gamificação.]{.mark}
+
+[3. Estimular o pensamento crítico em situações de emergência.]{.mark}
+
+[4. Promover a cultura de prevenção e resiliência urbana.]{.mark}
+
+[5. Integrar dados reais e lógica computacional para análise de impacto
+das decisões.]{.mark}
+
+[\-\--]{.mark}
+
+[\## 🌍 Relevância Social e Educacional]{.mark}
+
+[Com o agravamento das mudanças climáticas e o crescimento desordenado
+das cidades, o Brasil enfrenta crescentes desafios relacionados a
+enchentes. O HelpFlood propõe uma solução educativa, interativa e
+baseada em dados, promovendo o conhecimento, a prevenção e a
+responsabilidade social.]{.mark}
